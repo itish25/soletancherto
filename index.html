@@ -1,0 +1,131 @@
+<html>
+<head>
+<script>
+function exportF(elem) {
+  var table = document.getElementById("mytable");
+  var html = table.outerHTML;
+  var url = 'data:application/vnd.ms-excel,' + escape(html); // Set your html table into url 
+  elem.setAttribute("href", url);
+  elem.setAttribute("download", "export.xls"); // Choose the file name
+  return false;
+};
+
+function getDate() {
+  var curr = new Date; // get current date
+    var first = curr.getDate() - curr.getDay() + 1; 
+    var second= curr.getDate() - curr.getDay() + 2;
+    var third = curr.getDate() - curr.getDay() + 3;
+    var fourth= curr.getDate() - curr.getDay() + 4;
+    var fifth = curr.getDate() - curr.getDay() + 5;
+
+    var firstday = new Date(curr.setDate(first)).toLocaleDateString();
+    var secondday = new Date(curr.setDate(second)).toLocaleDateString();
+    var thirdday = new Date(curr.setDate(third)).toLocaleDateString();
+    var fourthday = new Date(curr.setDate(fourth)).toLocaleDateString();
+    var fifthday = new Date(curr.setDate(fifth)).toLocaleDateString();
+    var s = document.getElementById("mon");
+    var t = document.getElementById("tue");
+    var u = document.getElementById("wed");
+    var v = document.getElementById("thu");
+    var w = document.getElementById("fri");
+    s.value = firstday;
+    t.value = secondday;
+    u.value = thirdday;
+    v.value = fourthday;
+    w.value = fifthday;
+};
+</script>
+</head>
+<body onload="getDate()">
+<marquee><h1>Soletanche RTO</h1> </marquee>
+
+        <table  class=" table table-hover" id="mytable" border="5" cellspacing="0" align="center"><tbody><tr> 
+            <td align="center" height="50" width="100"><br> 
+                <b>Day/Seats</b><br> 
+            </td> 
+            <td align="center" height="50" width="100"> 
+                <b>I<br>9:30-10:20</b> 
+            </td> 
+            <td align="center" height="50" width="100"> 
+                <b>II<br>10:20-11:10</b> 
+            </td> 
+            <td align="center" height="50" width="100"> 
+                <b>III<br>11:10-12:00</b> 
+            </td> 
+            <td align="center" height="50" width="100"> 
+                <b>12:00-12:40</b> 
+            </td> 
+            <td align="center" height="50" width="100"> 
+                <b>IV<br>12:40-1:30</b> 
+            </td> 
+            <td align="center" height="50" width="100"> 
+                <b>V<br>1:30-2:20</b> 
+            </td> 
+            <td align="center" height="50" width="100"> 
+                <b>VI<br>2:20-3:10</b> 
+            </td> 
+            <td align="center" height="50" width="100"> 
+                <b>VII<br>3:10-4:00</b> 
+            </td> 
+        </tr> 
+        <tr> 
+            <td align="center" height="50"> 
+                <b>Monday</b><textarea id="mon" readonly cols="10" rows="1"></textarea></td> 
+            <td align="center" height="50">Eng</td> 
+            <td align="center" height="50">Mat</td> 
+            <td align="center" height="50">Che</td> 
+            <td align="center" height="50"> 
+                Lunch 
+            </td> 
+            <td align="center" height="50">LAB</td> 
+            <td align="center" height="50">Phy</td> 
+        </tr> 
+        <tr> 
+            <td align="center" height="50"> 
+                <b>Tuesday</b> <textarea id="tue" readonly cols="10" rows="1"></textarea>
+            </td> 
+            <td align="center" height="50">LAB 
+            </td> 
+            <td align="center" height="50">Eng</td> 
+            <td align="center" height="50">Che</td> 
+            <td align="center" height="50">Mat</td> 
+            <td align="center" height="50">SPORTS</td> 
+        </tr> 
+        <tr> 
+            <td align="center" height="50"> 
+                <b>Wednesday</b> <textarea id="wed" readonly cols="10" rows="1"></textarea>
+            </td> 
+            <td align="center" height="50">Mat</td> 
+            <td align="center" height="50">phy</td> 
+            <td align="center" height="50">Eng</td> 
+            <td align="center" height="50">Che</td> 
+            <td align="center" height="50">LIBRARY 
+            </td> 
+        </tr> 
+        <tr> 
+            <td align="center" height="50"> 
+                <b>Thursday</b> <textarea id="thu" readonly cols="10" rows="1"></textarea>
+            </td> 
+            <td align="center" height="50">Phy</td> 
+            <td align="center" height="50">Eng</td> 
+            <td align="center" height="50">Che</td> 
+            <td align="center" height="50">LAB 
+            </td> 
+            <td align="center" height="50">Mat</td> 
+        </tr> 
+        <tr> 
+            <td align="center" height="50"> 
+                <b>Friday</b><textarea id="fri" readonly cols="10" rows="1"></textarea> 
+            </td> 
+            <td align="center" height="50">LAB 
+            </td> 
+            <td align="center" height="50">Mat</td> 
+            <td align="center" height="50">Che</td> 
+            <td align="center" height="50">Eng</td> 
+            <td align="center" height="50">Phy</td> 
+        </tr> 
+       
+    </tbody></table>
+<a id="downloadLink" onclick="exportF(this)">Export to excel</a>
+</body>
+</html>
